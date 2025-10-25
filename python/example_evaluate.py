@@ -23,8 +23,8 @@ from evaluate import compute_map
 data_root = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'data')
 # Check, and, if necessary, download test data (Oxford and Pairs), 
 # revisited annotation, and example feature vectors for evaluation
-download_datasets(data_root)
-download_features(data_root)
+#download_datasets(data_root)
+#download_features(data_root)
 
 # Set test dataset: roxford5k | rparis6k
 test_dataset = 'roxford5k'
