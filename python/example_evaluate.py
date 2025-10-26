@@ -7,6 +7,16 @@
 #
 # Authors: Radenovic F., Iscen A., Tolias G., Avrithis Y., Chum O., 2018
 
+'''
+>> roxford5k: mAP E: 84.81, M: 64.67, H: 38.47
+
+>> roxford5k: mP@k[ 1  5 10]
+   E: [97.06 92.06 86.49], 
+   M: [97.14 90.67 84.67],
+   H: [81.43 63.   53.  ]
+
+'''
+
 import os
 import numpy as np
 
