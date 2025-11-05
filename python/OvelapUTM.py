@@ -136,5 +136,6 @@ if all_rects:
     ax.set_xlim(min_x, max_x)
     ax.set_ylim(min_y, max_y)
 
+plt.savefig('overlap_analysis.png', dpi=300, bbox_inches='tight')
 plt.show()
 print("Finished plotting.")
