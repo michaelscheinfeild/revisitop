@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
+from tqdm import tqdm
 
 # Function to compute the union area of a list of rectangles using sweep line algorithm
 def compute_union_area(rectangles):
@@ -72,6 +73,11 @@ for row in df2.itertuples():
     rects2.append([x1, y1, x2, y2])
 
 # Compute pairwise intersection rectangles
+# Add progress bar for computing intersections
+
+# Compute pairwise intersection rectangles with progress bar
+total_comparisons = len(rects1) * len(rects2)
+print(f"Computing intersections for {total_comparisons} rectangle pairs...")
 overlap_rects = []
 for r1 in rects1:
     for r2 in rects2:
@@ -109,4 +115,26 @@ ax.set_ylabel('UTM Y (meters)')
 ax.legend(['Region 1 (File 1)', 'Region 2 (File 2)', 'Overlap'])
 ax.set_title('Geographical Regions and Overlap')
 ax.grid(True)
+
+
+
+print(f"rects1[0]: {rects1[0]}")
+print(f"Number of rectangles in rects1: {len(rects1)}")
+print(f"Number of rectangles in rects2: {len(rects2)}")
+
+# Set axis limits to show the actual UTM coordinate ranges
+all_rects = rects1 + rects2
+if all_rects:
+    min_x = min(r[0] for r in all_rects)
+    max_x = max(r[2] for r in all_rects)
+    min_y = min(r[1] for r in all_rects)
+    max_y = max(r[3] for r in all_rects)
+    
+    print(f"X range: {min_x} to {max_x}")
+    print(f"Y range: {min_y} to {max_y}")
+    
+    ax.set_xlim(min_x, max_x)
+    ax.set_ylim(min_y, max_y)
+
 plt.show()
+print("Finished plotting.")
